@@ -1,68 +1,70 @@
 'use client';
 
 import React from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 
-export default function ProductItem() {
+interface ProductItemProps {
+  product: IProduct;
+}
+
+interface HeaderProps {
+  title: string;
+  description: string;
+}
+
+interface ContentProps {
+  price: number;
+}
+
+export default function ProductItem({ product }: ProductItemProps) {
+  const router = useRouter();
+  const { title, description, price, image } = product ?? {};
+
+  const onDetailProduct = () =>
+    router.push(`/asiong-store/${title.toLocaleLowerCase().trim().replace(' ', '-')}`);
+
   return (
     <>
-      <Card className="aspect-square w-full cursor-pointer" onClick={() => alert('test')}>
-        <div className="relative aspect-square w-full overflow-hidden rounded-t-lg">
-          <ImagePreview />
+      <Card
+        className="flex aspect-square h-full w-full cursor-pointer flex-col justify-between"
+        onClick={onDetailProduct}
+      >
+        <div>
+          <div className="relative aspect-square w-full overflow-hidden rounded-t-lg">
+            <ImagePreview image={image} />
+          </div>
+          <Header title={title} description={description} />
         </div>
-        <Header />
-        <Content />
-        <Footer />
+        <Content price={price} />
       </Card>
     </>
   );
 }
 
-const ImagePreview = () => (
+const ImagePreview = ({ image }: { image: string }) => (
   <Image
-    src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    src={image}
     fill
-    alt="image-produc"
-    className="h-full w-full object-cover object-center duration-300 hover:scale-110"
+    alt="image-product"
+    className="h-full w-full object-contain object-center duration-300 hover:scale-105"
     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 33vw"
     priority
   />
 );
 
-const Header = () => (
+const Header = ({ title, description }: HeaderProps) => (
   <CardHeader className="px-2 pb-2 md:px-2.5">
-    <CardTitle className="line-clamp-2 text-sm md:text-base">
-      Cireng Mahal
-    </CardTitle>
+    <CardTitle className="line-clamp-2 text-sm text-gray-700 md:text-base">{title ?? ''}</CardTitle>
     <CardDescription className="line-clamp-2 text-xs md:text-sm">
-      Sebuah cireng dengan balutan emas.
+      {description ?? ''}
     </CardDescription>
   </CardHeader>
 );
 
-const Content = () => (
-  <CardContent className="px-2 text-xs md:px-2.5 md:text-sm">
-    <p className="text-lg font-bold">Rp 25.000</p>
+const Content = ({ price }: ContentProps) => (
+  <CardContent className="px-2 py-3 text-xs md:px-2.5 md:text-sm">
+    <p className="text-lg font-bold">Rp {price}</p>
   </CardContent>
-);
-
-const Footer = () => (
-  <CardFooter className="px-2 pb-2.5 md:px-2.5">
-    <Button
-      variant="default"
-      className="w-full"
-      onClick={() => alert('BELI SEKARANG')}
-    >
-      Beli Sekarang
-    </Button>
-  </CardFooter>
 );

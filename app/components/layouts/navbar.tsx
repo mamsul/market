@@ -18,10 +18,10 @@ export function Navbar() {
 
   return (
     <Menubar className="fixed inset-x-0 top-0 z-20 flex h-10 justify-between rounded-none border-b border-none px-2 lg:px-4">
-      <div className="flex items-center space-x-2">
+      <Button variant="link" className="flex items-center space-x-2 p-0 !no-underline">
         <StoreIcon className="size-5" />
         <h1 className="font-bold">Pasar Knitto.</h1>
-      </div>
+      </Button>
 
       <div className="flex items-center space-x-1 md:space-x-3">
         {isLogin && (
@@ -48,9 +48,7 @@ const AuthenticatedMenu = () => {
 
   return (
     <MenubarMenu>
-      <MenubarTrigger className="hidden cursor-pointer md:block">
-        Hi, Mulyono
-      </MenubarTrigger>
+      <MenubarTrigger className="hidden cursor-pointer md:block">Hi, Mulyono</MenubarTrigger>
       <MenubarContent forceMount>
         {logedIn.map(({ name, icon }, idx) => (
           <MenubarItem inset key={idx}>

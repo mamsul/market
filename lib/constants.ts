@@ -1,5 +1,5 @@
 export const ENV = {
-  API_URL: process.env.NEXT_PUBLIC_PLATZI_BASE_URL,
+  API_URL: process.env.NEXT_PUBLIC_BASE_API_URL,
 };
 
 export const sortListData = [

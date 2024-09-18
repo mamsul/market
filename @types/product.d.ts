@@ -9,13 +9,9 @@ interface IProductFilter {
 
 interface IProduct {
   image: string;
-  name: string;
+  title: string;
   price: number;
-  variant: ProductVariant;
   description: string;
-  rating: number;
-  likes: number;
-  comments: number;
   category: string;
   tags: string[];
 }

@@ -27,7 +27,10 @@ export default function RootLayout({
         >
           <main>
             <Navbar />
-            {children}
+
+            <div className="pt-10">
+              <div className="bg-background">{children}</div>
+            </div>
           </main>
         </ThemeProvider>
       </body>

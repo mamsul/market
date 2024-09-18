@@ -1,17 +1,17 @@
 import React from 'react';
 import ProductItem from './product-item';
 import { cn } from '@/lib/utils';
-// import { fetcher } from '@/lib/fetchers';
+import { fetcher } from '@/lib/fetchers';
 
 interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-// async function getProducts() {
-//   const res = await fetcher('/products');
-//   console.log({ res });
-// }
+async function getProducts() {
+  const res = await fetcher('/products');
+  return res?.products ?? [];
+}
 
 export default async function ProductList({ className }: ProductListProps) {
-  // await getProducts();
+  const products = await getProducts();
 
   return (
     <div
@@ -20,15 +20,12 @@ export default async function ProductList({ className }: ProductListProps) {
         'sm:gap-5',
         'md:grid-cols-3',
         'lg:grid-cols-4',
-        'xl:grid-cols-5',
         className,
       )}
     >
-      {Array(6)
-        .fill(null)
-        .map((item, idx) => (
-          <ProductItem key={`product-item-${idx}`} />
-        ))}
+      {products?.map((product: IProduct, idx: number) => (
+        <ProductItem key={`product-item-${idx}`} product={product} />
+      ))}
     </div>
   );
 }

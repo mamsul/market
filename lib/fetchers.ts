@@ -1,7 +1,6 @@
-const baseURL = process.env.NEXT_PUBLIC_PLATZI_BASE_URL;
+import { ENV } from './constants';
 
-export const fetcher = (url: string) =>
-  fetch(baseURL + url).then((res) => res.json());
+export const fetcher = (url: string) => fetch(ENV.API_URL + url).then((res) => res.json());
 
 export const postFetcher = (url: string, data: Record<string, unknown>) =>
   fetch(url, {

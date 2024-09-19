@@ -3,15 +3,17 @@ import ProductItem from './product-item';
 import { cn } from '@/lib/utils';
 import { fetcher } from '@/lib/fetchers';
 
-interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {
+  limit?: number;
+}
 
-async function getProducts() {
-  const res = await fetcher('/products');
+async function getProducts(limit: number) {
+  const res = await fetcher('/products?limit=' + limit);
   return res?.products ?? [];
 }
 
-export default async function ProductList({ className }: ProductListProps) {
-  const products = await getProducts();
+export default async function ProductList({ className, limit = 50 }: ProductListProps) {
+  const products = await getProducts(limit);
 
   return (
     <div

@@ -1,6 +1,5 @@
 import { CartIcon } from '@/components/icons/cart-icon';
 import { LoveIcon } from '@/components/icons/love-icon';
-import StoreIcon from '@/components/icons/store-icon';
 import { UserCircleIcon } from '@/components/icons/user-circle-icon';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
@@ -11,6 +10,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from '@/components/ui/menubar';
+import WebLogo from '@/components/web-logo';
 import { navbarData } from '@/lib/data/navbar-data';
 
 export function Navbar() {
@@ -18,10 +18,7 @@ export function Navbar() {
 
   return (
     <Menubar className="fixed inset-x-0 top-0 z-20 flex h-10 justify-between rounded-none border-b border-none px-2 lg:px-4">
-      <Button variant="link" className="flex items-center space-x-2 p-0 !no-underline">
-        <StoreIcon className="size-5" />
-        <h1 className="font-bold">Pasar Knitto.</h1>
-      </Button>
+      <WebLogo />
 
       <div className="flex items-center space-x-1 md:space-x-3">
         {isLogin && (

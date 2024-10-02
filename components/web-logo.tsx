@@ -15,7 +15,7 @@ export default function WebLogo() {
       onClick={() => router.push('/')}
     >
       <StoreIcon className="size-5" />
-      <h1 className="font-bold">Pasar Knitto.</h1>
+      <h1 className="font-bold">PK.</h1>
     </Button>
   );
 }

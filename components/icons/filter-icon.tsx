@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils';
+import { IconProps } from '@/types';
 
 export function FilterIcon({ className, strokeWidth = 1.5 }: IconProps) {
   return (

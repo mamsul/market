@@ -2,6 +2,7 @@ import React from 'react';
 import ProductItem from './product-item';
 import { cn } from '@/lib/utils';
 import { fetcher } from '@/lib/fetchers';
+import { IProduct } from '@/types';
 
 interface ProductListProps extends React.HTMLAttributes<HTMLDivElement> {
   limit?: number;

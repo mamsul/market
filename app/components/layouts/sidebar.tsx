@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import ProductFilter from '../product-filter';
 import { useState } from 'react';
+import { IProductFilter } from '@/types';
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {}
 

@@ -42,7 +42,8 @@ export default function ProductPreviewImage() {
       <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-red-50">
         <Image
           src={selectedImage}
-          alt={`product-detail`}
+          alt={`product-detail-${imgIndex}`}
+          title={`product-detail-${imgIndex}`}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 33vw"
           className="size-full object-cover object-center"

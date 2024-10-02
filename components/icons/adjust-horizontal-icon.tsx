@@ -1,9 +1,7 @@
 import { cn } from '@/lib/utils';
+import { IconProps } from '@/types';
 
-export default function AdjustHorizontalIcon({
-  className,
-  strokeWidth = 1.5,
-}: IconProps) {
+export default function AdjustHorizontalIcon({ className, strokeWidth = 1.5 }: IconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

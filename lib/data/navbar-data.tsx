@@ -1,6 +1,7 @@
 import { InboxStackIcon } from '@/components/icons/inbox-stack-icon';
 import { SignoutIcon } from '@/components/icons/signout-icon';
 import { UserCircleIcon } from '@/components/icons/user-circle-icon';
+import { INavbarMenu } from '@/types';
 
 export const navbarData: INavbarMenu = {
   logedIn: [

@@ -3,13 +3,17 @@ import { Poppins } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Navbar } from './components/layouts/navbar';
 import '../styles/globals.css';
+import { customMetaDataGenerator } from '@/lib/utils';
 
-const inter = Poppins({ weight: ['400', '500', '600', '700', '800', '900'] });
+const poppins = Poppins({
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin', 'latin-ext'],
+  display: 'swap',
+});
 
-export const metadata: Metadata = {
+export const metadata: Metadata = customMetaDataGenerator({
   title: 'Pasar Knitto',
-  description: 'Jual beli jajan dan barang di Pasar Knitto',
-};
+});
 
 export default function RootLayout({
   children,
@@ -18,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -4,6 +4,8 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { generateSlug } from '@/lib/utils';
+import { IProduct } from '@/types';
 
 interface ProductItemProps {
   product: IProduct;
@@ -22,13 +24,12 @@ export default function ProductItem({ product }: ProductItemProps) {
   const router = useRouter();
   const { title, description, price, image } = product ?? {};
 
-  const onDetailProduct = () =>
-    router.push(`/asiong-store/${title.toLocaleLowerCase().trim().replace(' ', '-')}`);
+  const onDetailProduct = () => router.push(`/asiong-store/${generateSlug.slugify(title)}`);
 
   return (
     <>
       <Card
-        className="flex aspect-square h-full w-full cursor-pointer flex-col justify-between"
+        className="flex h-full w-full cursor-pointer flex-col justify-between"
         onClick={onDetailProduct}
       >
         <div>

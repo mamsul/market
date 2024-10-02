@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import React from 'react';
+import { IconProps } from '@/types';
 
 export default function XMarkIcon({ className, strokeWidth = 1.5 }: IconProps) {
   return (

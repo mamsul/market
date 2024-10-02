@@ -7,6 +7,11 @@ const nextConfig = {
       { protocol: 'https', hostname: 'storage.googleapis.com' },
     ],
   },
+
+  productionBrowserSourceMaps: false,
+  experimental: {
+    webpackBuildWorker: true,
+  },
 };
 
 export default nextConfig;

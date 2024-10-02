@@ -6,6 +6,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
 import { Slider } from '@/components/ui/slider';
 import { useDebounce } from '@/lib/hooks';
+import { IProductFilter } from '@/types';
 import React, { useCallback, useEffect, useState } from 'react';
 
 interface IProductFilterProps {
